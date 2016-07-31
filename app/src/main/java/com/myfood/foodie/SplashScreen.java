@@ -1,6 +1,7 @@
 package com.myfood.foodie;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.support.v7.app.AppCompatActivity;
@@ -59,6 +60,11 @@ public class SplashScreen extends AppCompatActivity{
         appIcon = (ImageView)findViewById(R.id.app_icon_splash);
         appName = (TextView)findViewById(R.id.app_name_splash);
         appTag = (TextView)findViewById(R.id.app_tag_splash);
+
+        //set the fonts
+        String fontPath = "fonts/Roboto-Black.ttf";
+        Typeface typeface = Typeface.createFromAsset(getAssets(), fontPath);
+        appName.setTypeface(typeface);
     }
 
     /*kill this splash screen to save memory*/
