@@ -9,7 +9,12 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.mikepenz.materialdrawer.Drawer;
+
 public class MainActivity extends AppCompatActivity {
+    public static String MAINACTIVITY_TAG = MainActivity.class.getSimpleName();
+    /*drawer object to be used*/
+    private Drawer drawer = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
