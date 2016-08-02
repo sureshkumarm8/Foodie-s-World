@@ -8,6 +8,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -50,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
                         new PrimaryDrawerItem().withName(R.string.app_name).withSelectedTextColor(getResources().getColor(R.color.fire_brick)).withIcon(R.mipmap.ic_launcher).withIdentifier(1),
                         new PrimaryDrawerItem().withName(R.string.app_name).withSelectedTextColor(getResources().getColor(R.color.fire_brick)).withIcon(R.mipmap.ic_launcher).withIdentifier(2),
                         new DividerDrawerItem(),
-                        new PrimaryDrawerItem().withName(R.string.app_name).withSelectedTextColor(getResources().getColor(R.color.fire_brick)).withIdentifier(3)
+                        new PrimaryDrawerItem().withName(R.string.app_name).withSelectedTextColor(getResources().getColor(R.color.fire_brick)).withIcon(R.mipmap.ic_launcher).withIdentifier(3)
                 ).withOnDrawerListener(new Drawer.OnDrawerListener(){
 
                     /*hide keyboard when user opens the drawer*/
@@ -78,8 +79,27 @@ public class MainActivity extends AppCompatActivity {
                                 getSupportActionBar().setTitle(name);
                                 Fragment fragment = null;
                                 String title;
-                                switch (){
-
+                                switch ((int) drawerItem.getIdentifier()){
+                                    case 0:
+                                        fragment = NewsFragment.newInstance();
+                                        title=getString(R.string.title_news);
+                                        Log.d(MAINACTIVITY_TAG, "Opened and Viewing " + name);
+                                        break;
+                                    case 1:
+                                        fragment= StocksFragment.newInstance();
+                                        title =getString(R.string.title_stocks);
+                                        Log.d(MAINACTIVITY_TAG, name + " opened");
+                                        break;
+                                    case 2:
+                                        fragment= ForexFragment.newInstance();
+                                        title =getString(R.string.title_forex);
+                                        Log.d(MAINACTIVITY_TAG,name + " opened");
+                                        break;
+                                    case 3:
+                                        fragment= BondsFragment.newInstance();
+                                        title =getString(R.string.title_bonds);
+                                        Log.d(MAINACTIVITY_TAG, name + " opened");
+                                        break;
                                 }
                                 if (fragment != null) {
                                     FragmentManager fragmentManager = getSupportFragmentManager();
@@ -98,7 +118,10 @@ public class MainActivity extends AppCompatActivity {
         /*Add custom activity on crash*/
         CustomActivityOnCrash.install(this);
         CustomActivityOnCrash.setEnableAppRestart(true);
+        /*show the stracktrace*/
+        CustomActivityOnCrash.setShowErrorDetails(false);
         CustomActivityOnCrash.setRestartActivityClass(MainActivity.class);
+
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
