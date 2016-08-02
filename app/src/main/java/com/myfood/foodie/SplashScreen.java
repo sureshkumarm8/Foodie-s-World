@@ -57,9 +57,9 @@ public class SplashScreen extends AppCompatActivity{
     /**Initializes the User Interface controls
      * obtains the appName, appTag and appIcon variables and finds their ids in the layout*/
     private void initializeUICtrls() {
-        appIcon = (ImageView)findViewById(R.id.app_icon_splash);
-        appName = (TextView)findViewById(R.id.app_name_splash);
-        appTag = (TextView)findViewById(R.id.app_tag_splash);
+        appIcon = (ImageView)findViewById(R.id.appicon_splash);
+        appName = (TextView)findViewById(R.id.appname_splash);
+        appTag = (TextView)findViewById(R.id.apptag_splash);
 
         //set the fonts
         String fontPath = "fonts/Roboto-Black.ttf";
