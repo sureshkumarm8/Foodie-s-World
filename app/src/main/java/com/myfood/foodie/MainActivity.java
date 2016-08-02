@@ -11,6 +11,10 @@ import android.view.MenuItem;
 
 import com.mikepenz.materialdrawer.Drawer;
 import com.mikepenz.materialdrawer.DrawerBuilder;
+import com.mikepenz.materialdrawer.model.DividerDrawerItem;
+import com.mikepenz.materialdrawer.model.PrimaryDrawerItem;
+import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
+import com.mikepenz.materialdrawer.util.KeyboardUtil;
 
 /**Set the view of the screen and find the toolbar
  * create the main drawer for the entire application.
@@ -33,8 +37,39 @@ public class MainActivity extends AppCompatActivity {
         drawer = new DrawerBuilder()
                 .withActivity(this)
                 .withToolbar(toolbar)
-                .withHeader(R.drawable.home_drawer_header_view)
-                .
+                .withHeader(R.layout.main_drawer_header_view)
+                .withActionBarDrawerToggle(true)
+                .addDrawerItems(
+                        new PrimaryDrawerItem().withName(R.string.app_name).withSelectedTextColor(getResources().getColor(R.color.fire_brick)).withIcon(R.mipmap.ic_launcher).withIdentifier(0),
+                        new PrimaryDrawerItem().withName(R.string.app_name).withSelectedTextColor(getResources().getColor(R.color.fire_brick)).withIcon(R.mipmap.ic_launcher).withIdentifier(1),
+                        new PrimaryDrawerItem().withName(R.string.app_name).withSelectedTextColor(getResources().getColor(R.color.fire_brick)).withIcon(R.mipmap.ic_launcher).withIdentifier(2),
+                        new DividerDrawerItem(),
+                        new PrimaryDrawerItem().withName(R.string.app_name).withSelectedTextColor(getResources().getColor(R.color.fire_brick)).withIdentifier(3)
+                ).withOnDrawerListener(new Drawer.OnDrawerListener(){
+
+                    /*hide keyboard when user opens the drawer*/
+                    @Override
+                    public void onDrawerOpened(View drawerView) {
+                        KeyboardUtil.hideKeyboard(MainActivity.this);
+                    }
+
+                    @Override
+                    public void onDrawerClosed(View drawerView) {
+
+                    }
+
+
+                    @Override
+                    public void onDrawerSlide(View drawerView, float slideOffset) {
+
+                    }
+                }).withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
+                    @Override
+                    public boolean onItemClick(View view, int position, IDrawerItem drawerItem) {
+                        return false;
+                    }
+                }).build();
+
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
