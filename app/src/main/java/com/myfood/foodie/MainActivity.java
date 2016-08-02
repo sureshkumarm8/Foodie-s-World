@@ -20,6 +20,7 @@ import com.mikepenz.materialdrawer.model.PrimaryDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.Nameable;
 import com.mikepenz.materialdrawer.util.KeyboardUtil;
+import com.myfood.foodie.Foods.FoodFragment;
 
 import cat.ereza.customactivityoncrash.CustomActivityOnCrash;
 
@@ -81,7 +82,7 @@ public class MainActivity extends AppCompatActivity {
                                 String title;
                                 switch ((int) drawerItem.getIdentifier()){
                                     case 0:
-                                        fragment = NewsFragment.newInstance();
+                                        fragment = FoodFragment.newInstance();
                                         title=getString(R.string.title_news);
                                         Log.d(MAINACTIVITY_TAG, "Opened and Viewing " + name);
                                         break;
