@@ -10,7 +10,12 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.mikepenz.materialdrawer.Drawer;
+import com.mikepenz.materialdrawer.DrawerBuilder;
 
+/**Set the view of the screen and find the toolbar
+ * create the main drawer for the entire application.
+ * The home/main activity will have a FrameLayout and each fragment will be loaded on the FrameLayout
+ * The*/
 public class MainActivity extends AppCompatActivity {
     public static String MAINACTIVITY_TAG = MainActivity.class.getSimpleName();
     /*drawer object to be used*/
@@ -22,7 +27,14 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.main_activity_layout);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        //getSupportActionBar().setDisplayShowHomeEnabled(true);
+        //getSupportActionBar().setHomeButtonEnabled(true);
 
+        drawer = new DrawerBuilder()
+                .withActivity(this)
+                .withToolbar(toolbar)
+                .withHeader(R.drawable.home_drawer_header_view)
+                .
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
