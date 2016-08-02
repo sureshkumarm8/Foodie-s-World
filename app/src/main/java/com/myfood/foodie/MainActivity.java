@@ -20,7 +20,7 @@ import com.mikepenz.materialdrawer.model.PrimaryDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.Nameable;
 import com.mikepenz.materialdrawer.util.KeyboardUtil;
-import com.myfood.foodie.Foods.FoodFragment;
+import com.myfood.foodie.Foods.FoodFragRec;
 
 import cat.ereza.customactivityoncrash.CustomActivityOnCrash;
 
@@ -82,22 +82,22 @@ public class MainActivity extends AppCompatActivity {
                                 String title;
                                 switch ((int) drawerItem.getIdentifier()){
                                     case 0:
-                                        fragment = FoodFragment.newInstance();
-                                        title=getString(R.string.title_news);
+                                        fragment = FoodFragRec.newInstance();
+                                        title=getString(R.string.app_name);
                                         Log.d(MAINACTIVITY_TAG, "Opened and Viewing " + name);
                                         break;
                                     case 1:
-                                        fragment= StocksFragment.newInstance();
-                                        title =getString(R.string.title_stocks);
+                                        fragment= FoodFragRec.newInstance();
+                                        title =getString(R.string.app_name);
                                         Log.d(MAINACTIVITY_TAG, name + " opened");
                                         break;
                                     case 2:
-                                        fragment= ForexFragment.newInstance();
-                                        title =getString(R.string.title_forex);
+                                        fragment= FoodFragRec.newInstance();
+                                        title =getString(R.string.app_name);
                                         Log.d(MAINACTIVITY_TAG,name + " opened");
                                         break;
                                     case 3:
-                                        fragment= BondsFragment.newInstance();
+                                        fragment= FoodFragRec.newInstance();
                                         title =getString(R.string.title_bonds);
                                         Log.d(MAINACTIVITY_TAG, name + " opened");
                                         break;
