@@ -79,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
                                String name = ((Nameable) drawerItem).getName().getText(MainActivity.this);
                                 getSupportActionBar().setTitle(name);
                                 Fragment fragment = null;
-                                String title;
+                                String title = "Foodie";
                                 switch ((int) drawerItem.getIdentifier()){
                                     case 0:
                                         fragment = FoodFragRec.newInstance();
@@ -98,7 +98,7 @@ public class MainActivity extends AppCompatActivity {
                                         break;
                                     case 3:
                                         fragment= FoodFragRec.newInstance();
-                                        title =getString(R.string.title_bonds);
+                                        title =getString(R.string.app_name);
                                         Log.d(MAINACTIVITY_TAG, name + " opened");
                                         break;
                                 }
