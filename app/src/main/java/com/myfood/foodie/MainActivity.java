@@ -3,6 +3,9 @@ package com.myfood.foodie;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -14,6 +17,7 @@ import com.mikepenz.materialdrawer.DrawerBuilder;
 import com.mikepenz.materialdrawer.model.DividerDrawerItem;
 import com.mikepenz.materialdrawer.model.PrimaryDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
+import com.mikepenz.materialdrawer.model.interfaces.Nameable;
 import com.mikepenz.materialdrawer.util.KeyboardUtil;
 
 /**Set the view of the screen and find the toolbar
@@ -66,9 +70,29 @@ public class MainActivity extends AppCompatActivity {
                 }).withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
                     @Override
                     public boolean onItemClick(View view, int position, IDrawerItem drawerItem) {
+                        if(drawerItem != null){
+                            if(drawerItem instanceof Nameable){
+                               String name = ((Nameable) drawerItem).getName().getText(MainActivity.this);
+                                getSupportActionBar().setTitle(name);
+                                Fragment fragment = null;
+                                String title;
+                                switch (){
+
+                                }
+                                if (fragment != null) {
+                                    FragmentManager fragmentManager = getSupportFragmentManager();
+                                    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                                    fragmentTransaction.replace(R.id.container_body, fragment);
+                                    fragmentTransaction.commit();
+                                    // set the toolbar title
+                                    getSupportActionBar().setTitle(title);
+                                }
+                            }
+                        }
                         return false;
                     }
                 }).build();
+
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
