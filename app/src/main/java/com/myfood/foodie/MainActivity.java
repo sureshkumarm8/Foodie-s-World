@@ -20,6 +20,8 @@ import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.Nameable;
 import com.mikepenz.materialdrawer.util.KeyboardUtil;
 
+import cat.ereza.customactivityoncrash.CustomActivityOnCrash;
+
 /**Set the view of the screen and find the toolbar
  * create the main drawer for the entire application.
  * The home/main activity will have a FrameLayout and each fragment will be loaded on the FrameLayout
@@ -93,6 +95,10 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }).build();
 
+        /*Add custom activity on crash*/
+        CustomActivityOnCrash.install(this);
+        CustomActivityOnCrash.setEnableAppRestart(true);
+        CustomActivityOnCrash.setRestartActivityClass(MainActivity.class);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -103,6 +109,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
+/*-------------------OPTION MENU---------------------------------------------*/
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -125,4 +133,29 @@ public class MainActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+/*----------------------------------------------------------------------------------------------------------*/
+    @Override
+    protected void onResume() {
+        super.onResume();
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        //add the values which need to be saved from the drawer to the bundle
+        outState = drawer.saveInstanceState(outState);
+        //add the values which need to be saved from the accountHeader to the bundle
+        super.onSaveInstanceState(outState);
+    }
+
+    /** Take care of popping the fragment back stack or finishing the activity as appropriate.*/
+    @Override
+    public void onBackPressed() {
+        //handle the back press close the drawer first and if the drawer is closed close the activity
+        if (drawer != null && drawer.isDrawerOpen()) {
+            drawer.closeDrawer();
+        } else {
+            super.onBackPressed();}
+    }
+
+/*CLASS END*/
 }
