@@ -7,5 +7,6 @@
     <!--Dimensions for card view food items-->
     <dimen name="card_food_radius">0dp</dimen>
     <dimen name="card_food_margin">5dp</dimen>
+    <dimen name="food_image_height">160dp</dimen>
 
 </resources>
