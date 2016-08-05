@@ -3,4 +3,6 @@
     <string name="app_tag">For food lovers</string>
     <string name="action_settings">Settings</string>
     <string name="food_image_card">Food item Image</string>
+    <string name="food_title_card">Food Title</string>
+    <string name="food_desc_card">Lorem ipsum dolor sit amet, quo justo semper maiestatis te. Natum minim nominavi eu cum, his mucius numquam ocurreret eu, in dicunt impedit suscipiantur pro.</string>
 </resources>
