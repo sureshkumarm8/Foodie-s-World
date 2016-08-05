@@ -7,10 +7,15 @@
     <!--Dimensions for card view food items-->
     <dimen name="card_food_radius">0dp</dimen>
     <dimen name="card_food_margin">5dp</dimen>
+    <!--image-->
     <dimen name="food_image_height">160dp</dimen>
+    <!--food title-->
     <dimen name="food_title_card_padding">10dp</dimen>
     <dimen name="food_title_size">15sp</dimen>
+    <!--brief desc-->
     <dimen name="food_desc_padding">10dp</dimen>
     <dimen name="food_desc_size">15sp</dimen>
+    <!--chef name-->
+    <dimen name="food_chef_size">15sp</dimen>
 
 </resources>

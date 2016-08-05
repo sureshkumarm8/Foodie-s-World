@@ -37,6 +37,7 @@
                 android:paddingRight="@dimen/food_title_card_padding"
                 android:textColor="@color/black"
                 android:text="@string/food_title_card"
+                android:textStyle="bold"
                 android:textSize="@dimen/food_title_size"/>
 
             <!--brief desciption-->
@@ -50,6 +51,21 @@
                 android:textColor="@color/black"
                 android:text="@string/food_desc_card"
                 android:textSize="@dimen/food_desc_size"/>
+
+            <!--Chef and date posted-->
+            <LinearLayout
+                android:layout_below="@+id/food_desc_card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:id="@+id/food_chef_card"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/food_chef_card"
+                    android:textSize="@dimen/food_chef_size"
+                    android:textColor="@color/fire_brick"/>
+            </LinearLayout>
         </RelativeLayout>
     </android.support.v7.widget.CardView>
 
