@@ -57,14 +57,39 @@
                 android:layout_below="@+id/food_desc_card"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:paddingLeft="@dimen/food_chef_padding"
+                android:paddingRight="@dimen/food_chef_padding"
+                android:layout_marginTop="@dimen/food_chef_marginTop"
                 android:orientation="horizontal">
+                <!--date posted-->
+                <TextView
+                    android:id="@+id/food_date_card"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/food_date_card"
+                    android:textSize="@dimen/food_chef_size"
+                    android:paddingRight="@dimen/food_chef_padding"
+                    android:paddingEnd="@dimen/food_chef_padding"
+                    android:paddingLeft="0dp"
+                    android:paddingStart="0dp"
+                    android:textColor="@color/black"/>
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="15dp"
+                    android:background="@color/dim_gray"/>
+                <!--chef name-->
                 <TextView
                     android:id="@+id/food_chef_card"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/food_chef_card"
                     android:textSize="@dimen/food_chef_size"
+                    android:paddingLeft="@dimen/food_chef_padding"
+                    android:paddingStart="@dimen/food_chef_padding"
+                    android:paddingRight="0dp"
+                    android:paddingEnd="0dp"
                     android:textColor="@color/fire_brick"/>
+
             </LinearLayout>
         </RelativeLayout>
     </android.support.v7.widget.CardView>

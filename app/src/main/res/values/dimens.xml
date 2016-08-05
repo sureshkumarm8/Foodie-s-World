@@ -17,5 +17,7 @@
     <dimen name="food_desc_size">15sp</dimen>
     <!--chef name-->
     <dimen name="food_chef_size">15sp</dimen>
+    <dimen name="food_chef_padding">10dp</dimen>
+    <dimen name="food_chef_marginTop">10dp</dimen>
 
 </resources>
