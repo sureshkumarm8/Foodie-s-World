@@ -5,5 +5,7 @@
     <dimen name="fab_margin">16dp</dimen>
 
     <!--Dimensions for card view food items-->
+    <dimen name="card_food_radius">0dp</dimen>
+    <dimen name="card_food_margin">5dp</dimen>
 
 </resources>

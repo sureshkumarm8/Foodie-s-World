@@ -10,9 +10,9 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:elevation="3dp"
-        card_view:cardCornerRadius=""
+        card_view:cardCornerRadius="@dimen/card_food_radius"
+        android:layout_margin="@dimen/card_food_margin">
 
-        >
 
     </android.support.v7.widget.CardView>
 
