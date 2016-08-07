@@ -14,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.OvershootInterpolator;
 
+import com.bumptech.glide.Glide;
 import com.myfood.foodie.R;
 
 import java.util.List;
@@ -71,7 +72,18 @@ public class FoodFragRec extends Fragment{
         recyclerView.setHasFixedSize(true);
         recyclerView.setItemAnimator(new LandingAnimator());
         recyclerView.setAdapter(scaleAdapter);
+
+        prepareMockFoodItems();
+
         return rootView;
+    }
+
+    /*mock images and text for food items*/
+    private void prepareMockFoodItems() {
+        int[] foodimages = new int[]{
+                R.drawable.chef;
+        };
+
     }
 
     /**
