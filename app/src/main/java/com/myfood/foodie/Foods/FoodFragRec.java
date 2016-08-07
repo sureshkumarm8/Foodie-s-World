@@ -7,6 +7,8 @@ import android.support.design.widget.CoordinatorLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.DefaultItemAnimator;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -14,7 +16,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.OvershootInterpolator;
 
-import com.bumptech.glide.Glide;
 import com.myfood.foodie.R;
 
 import java.util.ArrayList;
@@ -68,6 +69,13 @@ public class FoodFragRec extends Fragment{
         /*initialize the food model list*/
         foodModelList = new ArrayList<>();
         foodAdapter = new FoodAdapter(getActivity(), foodModelList);
+
+/*
+        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getActivity());
+        recyclerView.setLayoutManager(mLayoutManager);
+        recyclerView.setItemAnimator(new DefaultItemAnimator());
+        recyclerView.setAdapter(foodAdapter);
+*/
 
         AlphaInAnimationAdapter alphaAdapter = new AlphaInAnimationAdapter(foodAdapter);
         alphaAdapter.setInterpolator(new OvershootInterpolator());
