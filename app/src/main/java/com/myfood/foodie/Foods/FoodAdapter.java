@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.myfood.foodie.R;
 
 import org.w3c.dom.Text;
@@ -54,6 +55,18 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.FoodViewHolder
     public FoodViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.fooditem_layout, parent, false);
         return new FoodViewHolder(itemView);
+    }
+
+    @Override
+    public void onBindViewHolder(final FoodViewHolder holder, int position) {
+        FoodModel foodModel = foodModelList.get(position);
+        holder.foodTitle.setText(foodModel.getFoodName());
+        holder.foodDesc.setText(foodModel.getBriefDesc());
+        holder.datePosted.setText(foodModel.getDatePosted());
+        holder.chefName.setText(foodModel.getChefName());
+
+        //load images using Glider library
+        Glide.with(mContext).load(foodModel.getThumbnail()).into(holder.foodImage);
     }
 
     /*CLASS END, get out!!*/

@@ -10,17 +10,18 @@ package com.myfood.foodie.Foods;
  */
 public class FoodModel {
     /*fields*/
-    private String foodName, chefName, briefDesc;
+    private String foodName, chefName, briefDesc, datePosted;
     private int thumbnail;
 
     /*constructor*/
     public FoodModel(){}
 
     /*constructor*/
-    public FoodModel(String foodName, String chefName, String briefDesc, int thumbnail) {
+    public FoodModel(String foodName, String chefName, String briefDesc, String datePosted, int thumbnail) {
         this.foodName = foodName;
         this.chefName = chefName;
         this.briefDesc = briefDesc;
+        this.datePosted = datePosted;
         this.thumbnail = thumbnail;
     }
 
@@ -56,6 +57,14 @@ public class FoodModel {
 
     public void setThumbnail(int thumbnail) {
         this.thumbnail = thumbnail;
+    }
+
+    public String getDatePosted() {
+        return datePosted;
+    }
+
+    public void setDatePosted(String datePosted) {
+        this.datePosted = datePosted;
     }
 /*CLASS END*/
 }
