@@ -69,5 +69,10 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.FoodViewHolder
         Glide.with(mContext).load(foodModel.getThumbnail()).into(holder.foodImage);
     }
 
-    /*CLASS END, get out!!*/
+    @Override
+    public int getItemCount() {
+        return foodModelList.size();
+    }
+
+/*CLASS END, get out!!*/
 }
