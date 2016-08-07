@@ -1,9 +1,11 @@
 package com.myfood.foodie.Foods;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -22,12 +24,20 @@ public class FoodFragRec extends Fragment{
     private static final  String FOODFRAG_TAG = FoodFragRec.class.getSimpleName();
     private RecyclerView recyclerView;
 
-
     public static Fragment newInstance() {
         FoodFragRec frag = new FoodFragRec();
         frag.setRetainInstance(true);
         return frag;
     }
+    /**reference to activity which uses fragment for initialization*/
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        AppCompatActivity appCompatActivity = (AppCompatActivity) context;
+        setRetainInstance(true);
+    }
+
+    /*called when it is time for the fragment to draw its UI for the first time*/
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.foodfragrec_layout, container, false);
@@ -41,6 +51,7 @@ public class FoodFragRec extends Fragment{
                 R.color.dark_yellow,
                 R.color.dark_turquoise,
                 R.color.dark_sea_green);
+
 /*        AlphaInAnimationAdapter alphaAdapter = new AlphaInAnimationAdapter(mNewsRecyclerAdapter);
         alphaAdapter.setInterpolator(new OvershootInterpolator());
         ScaleInAnimationAdapter scaleAdapter = new ScaleInAnimationAdapter(alphaAdapter);
