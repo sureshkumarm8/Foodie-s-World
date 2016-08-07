@@ -82,5 +82,50 @@ public class FoodFragRec extends Fragment{
         super.onActivityCreated(savedInstanceState);
     }
 
+    /**called once fragment becomes visible*/
+    @Override
+    public void onStart() {
+        super.onStart();
+    }
+
+    /**fragment becomes active*/
+    @Override
+    public void onResume() {
+        super.onResume();
+    }
+
+    /**called when user leaves fragment where changes should be committed. Changes should persist
+     * beyond current user session*/
+    @Override
+    public void onPause() {
+        super.onPause();
+    }
+
+    /**when fragment is stopped*/
+    @Override
+    public void onStop() {
+        super.onStop();
+    }
+
+    /**
+     * fragment is destroyed after this
+     * */
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+    }
+
+    /**
+     * Performs final clean up of fragments state but not guaranteed to be called by Android platform
+     * */
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+    }
 /*END*/
 }
