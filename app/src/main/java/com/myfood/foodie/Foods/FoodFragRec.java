@@ -17,6 +17,7 @@ import android.view.animation.OvershootInterpolator;
 import com.bumptech.glide.Glide;
 import com.myfood.foodie.R;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import jp.wasabeef.recyclerview.animators.LandingAnimator;
@@ -63,6 +64,9 @@ public class FoodFragRec extends Fragment{
                 R.color.dark_yellow,
                 R.color.dark_turquoise,
                 R.color.dark_sea_green);
+
+        /*initialize the food model list*/
+        foodModelList = new ArrayList<>();
 
         AlphaInAnimationAdapter alphaAdapter = new AlphaInAnimationAdapter(foodAdapter);
         alphaAdapter.setInterpolator(new OvershootInterpolator());
