@@ -3,7 +3,9 @@ package com.myfood.foodie.Foods;
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.test.suitebuilder.TestMethod;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -42,6 +44,17 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.FoodViewHolder
         }
     }
 
-    public FoodAdapter
-/*CLASS END, get out!!*/
+    // constructor
+    public FoodAdapter(Context mContext, List<FoodModel> foodModelList){
+        this.mContext = mContext;
+        this.foodModelList = foodModelList;
+    }
+
+    @Override
+    public FoodViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.fooditem_layout, parent, false);
+        return new FoodViewHolder(itemView);
+    }
+
+    /*CLASS END, get out!!*/
 }
