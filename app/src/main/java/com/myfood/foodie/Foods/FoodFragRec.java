@@ -2,16 +2,25 @@ package com.myfood.foodie.Foods;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.OvershootInterpolator;
 
 import com.myfood.foodie.R;
+
+import java.util.List;
+
+import jp.wasabeef.recyclerview.animators.LandingAnimator;
+import jp.wasabeef.recyclerview.animators.adapters.AlphaInAnimationAdapter;
+import jp.wasabeef.recyclerview.animators.adapters.ScaleInAnimationAdapter;
 
 /**
  * Project: Foodie
@@ -23,6 +32,8 @@ import com.myfood.foodie.R;
 public class FoodFragRec extends Fragment{
     private static final  String FOODFRAG_TAG = FoodFragRec.class.getSimpleName();
     private RecyclerView recyclerView;
+    private FoodAdapter foodAdapter;
+    private List<FoodModel> foodModelList;
 
     public static Fragment newInstance() {
         FoodFragRec frag = new FoodFragRec();
@@ -52,15 +63,23 @@ public class FoodFragRec extends Fragment{
                 R.color.dark_turquoise,
                 R.color.dark_sea_green);
 
-/*        AlphaInAnimationAdapter alphaAdapter = new AlphaInAnimationAdapter(mNewsRecyclerAdapter);
+        AlphaInAnimationAdapter alphaAdapter = new AlphaInAnimationAdapter(foodAdapter);
         alphaAdapter.setInterpolator(new OvershootInterpolator());
         ScaleInAnimationAdapter scaleAdapter = new ScaleInAnimationAdapter(alphaAdapter);
         LinearLayoutManager mLinearLayoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(mLinearLayoutManager);
         recyclerView.setHasFixedSize(true);
         recyclerView.setItemAnimator(new LandingAnimator());
-        recyclerView.setAdapter(scaleAdapter);*/
+        recyclerView.setAdapter(scaleAdapter);
         return rootView;
+    }
+
+    /**
+     * Called when host activity is created. View can be accessed with findViewById() method
+     **/
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
     }
 
 /*END*/
