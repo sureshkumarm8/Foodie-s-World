@@ -81,9 +81,50 @@ public class FoodFragRec extends Fragment{
     /*mock images and text for food items*/
     private void prepareMockFoodItems() {
         int[] foodimages = new int[]{
-                R.drawable.chef;
+                R.drawable.bread,
+                R.drawable.bread_powdered,
+                R.drawable.lasagna,
+                R.drawable.salad,
+                R.drawable.salmon,
+                R.drawable.sweet_cashews,
+                R.drawable.noodle,
+                R.drawable.rolled_buns,
+                R.drawable.teriyaki,
+                R.drawable.pancakes
         };
+        //add mock data
+        FoodModel foodModel = new FoodModel("Bread", "The Lusina",getString(R.string.food_desc_card), "Wednesday",foodimages[0]);
+        foodModelList.add(foodModel);
 
+        foodModel = new FoodModel("Bread Powdered", "Brian",getString(R.string.food_desc_card), "Thursday",foodimages[1]);
+        foodModelList.add(foodModel);
+
+        foodModel = new FoodModel("Lasagna", "Awori",getString(R.string.food_desc_card), "Friday",foodimages[2]);
+        foodModelList.add(foodModel);
+
+        foodModel = new FoodModel("Salad", "Ombito",getString(R.string.food_desc_card), "Saturday",foodimages[3]);
+        foodModelList.add(foodModel);
+
+        foodModel = new FoodModel("Salmon", "Lusina",getString(R.string.food_desc_card), "Wednesday",foodimages[4]);
+        foodModelList.add(foodModel);
+
+        foodModel = new FoodModel("Sweet Cashews", "DeDe",getString(R.string.food_desc_card), "Wednesday",foodimages[5]);
+        foodModelList.add(foodModel);
+
+        foodModel = new FoodModel("Noodle", "The Lusina",getString(R.string.food_desc_card), "Wednesday",foodimages[6]);
+        foodModelList.add(foodModel);
+
+        foodModel = new FoodModel("Rolled Buns", "The Lusina",getString(R.string.food_desc_card), "Wednesday",foodimages[7]);
+        foodModelList.add(foodModel);
+
+        foodModel = new FoodModel("Teriyaki", "The Lusina",getString(R.string.food_desc_card), "Wednesday",foodimages[8]);
+        foodModelList.add(foodModel);
+
+        foodModel = new FoodModel("Pancakes", "The Lusina",getString(R.string.food_desc_card), "Wednesday",foodimages[9]);
+        foodModelList.add(foodModel);
+
+        // notify the adapter of data set changing
+        foodAdapter.notifyDataSetChanged();
     }
 
     /**
