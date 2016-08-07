@@ -67,6 +67,7 @@ public class FoodFragRec extends Fragment{
 
         /*initialize the food model list*/
         foodModelList = new ArrayList<>();
+        foodAdapter = new FoodAdapter(getActivity(), foodModelList);
 
         AlphaInAnimationAdapter alphaAdapter = new AlphaInAnimationAdapter(foodAdapter);
         alphaAdapter.setInterpolator(new OvershootInterpolator());
