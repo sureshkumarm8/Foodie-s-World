@@ -8,17 +8,13 @@ import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.DefaultItemAnimator;
-import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.OvershootInterpolator;
-
 import com.myfood.foodie.R;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -63,7 +59,7 @@ public class FoodFragRec extends Fragment{
         //has options?
         setHasOptionsMenu(true);
 
-                /*initialize the food model list*/
+        /*initialize the food model list*/
         foodModelList = new ArrayList<>();
         foodAdapter = new FoodAdapter(getActivity(), foodModelList);
         prepareMockFoodItems();
@@ -180,12 +176,14 @@ public class FoodFragRec extends Fragment{
     @Override
     public void onStart() {
         super.onStart();
+        prepareMockFoodItems();
     }
 
     /**fragment becomes active*/
     @Override
     public void onResume() {
         super.onResume();
+        prepareMockFoodItems();
     }
 
     /**called when user leaves fragment where changes should be committed. Changes should persist
