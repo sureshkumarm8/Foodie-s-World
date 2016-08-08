@@ -66,7 +66,8 @@ public class FoodFragRec extends Fragment{
                 /*initialize the food model list*/
         foodModelList = new ArrayList<>();
         foodAdapter = new FoodAdapter(getActivity(), foodModelList);
-/*
+        prepareMockFoodItems();
+        /*
         if(isNetworkAvailable()) {
             loadNews.execute();
         }else{
@@ -114,8 +115,6 @@ public class FoodFragRec extends Fragment{
         recyclerView.setHasFixedSize(true);
         recyclerView.setItemAnimator(new LandingAnimator());
         recyclerView.setAdapter(scaleAdapter);
-
-        prepareMockFoodItems();
 
         return rootView;
     }
