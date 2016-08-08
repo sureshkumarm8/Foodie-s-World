@@ -4,10 +4,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+<!--
     <android.support.v4.widget.SwipeRefreshLayout
         android:id="@+id/food_frag_swipe_refresh_layout_id"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+-->
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/food_frag_recycler_id"
@@ -17,5 +19,5 @@
             android:clipToPadding="false"
             android:padding="2dp"/>
 
-    </android.support.v4.widget.SwipeRefreshLayout>
+<!--    </android.support.v4.widget.SwipeRefreshLayout>-->
 </android.support.design.widget.CoordinatorLayout>
