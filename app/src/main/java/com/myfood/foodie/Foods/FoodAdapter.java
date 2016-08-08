@@ -76,6 +76,11 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.ViewHolder>{
         }
     }
 
+    public void add(FoodModel itemModel, int postion){
+        foodModelList.add(postion,itemModel);
+        notifyDataSetChanged();
+    }
+
     @Override
     public int getItemCount() {
         return foodModelList.size();
