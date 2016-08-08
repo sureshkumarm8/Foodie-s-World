@@ -4,6 +4,7 @@ import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.CoordinatorLayout;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -37,6 +38,7 @@ public class FoodFragRec extends Fragment{
     private RecyclerView recyclerView;
     private FoodAdapter foodAdapter;
     private List<FoodModel> foodModelList;
+    private CoordinatorLayout coordinatorLayout;
 
     public static Fragment newInstance() {
         FoodFragRec frag = new FoodFragRec();
@@ -50,6 +52,37 @@ public class FoodFragRec extends Fragment{
         AppCompatActivity appCompatActivity = (AppCompatActivity) context;
         setRetainInstance(true);
     }
+
+    /**
+     * creates fragment's essential components of fragment that you want to retain when fragment
+     * is paused or stopped*/
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        //has options?
+        setHasOptionsMenu(true);
+
+                /*initialize the food model list*/
+        foodModelList = new ArrayList<>();
+        foodAdapter = new FoodAdapter(getActivity(), foodModelList);
+/*
+        if(isNetworkAvailable()) {
+            loadNews.execute();
+        }else{
+            Snackbar snackbar = Snackbar
+                    .make(coordinatorLayout, getString(R.string.snackbar_warning_no_internet_conn), Snackbar.LENGTH_SHORT)
+                    .setAction(getString(R.string.snackbar_no_internet_conn_retry), new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            Snackbar snackbar1 = Snackbar.make(coordinatorLayout, getString(R.string.snackbar_no_internet_conn_retry), Snackbar.LENGTH_SHORT);
+                            snackbar1.show();
+                        }
+                    });
+            snackbar.show();
+        }*/
+    }
+
 
     /*called when it is time for the fragment to draw its UI for the first time*/
     @Override
@@ -65,10 +98,6 @@ public class FoodFragRec extends Fragment{
                 R.color.dark_yellow,
                 R.color.dark_turquoise,
                 R.color.dark_sea_green);
-
-        /*initialize the food model list*/
-        foodModelList = new ArrayList<>();
-        foodAdapter = new FoodAdapter(getActivity(), foodModelList);
 
 /*
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getActivity());
