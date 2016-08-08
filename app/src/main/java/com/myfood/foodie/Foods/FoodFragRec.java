@@ -157,9 +157,6 @@ public class FoodFragRec extends Fragment{
 
         foodModel = new FoodModel("Pancakes", "The Lusina",getString(R.string.food_desc_card), "Wednesday",foodimages[9]);
         foodModelList.add(foodModel);
-
-        // notify the adapter of data set changing
-        foodAdapter.notifyDataSetChanged();
     }
 
     /**

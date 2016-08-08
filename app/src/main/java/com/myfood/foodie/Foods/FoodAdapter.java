@@ -24,16 +24,42 @@ import java.util.List;
  *
  * the FoodViewHolder will find the view items with their ids
  */
-public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.FoodViewHolder>{
+public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.ViewHolder>{
     private Context mContext;
     private List<FoodModel> foodModelList;
     public int itemLayout;
 
-    public class FoodViewHolder extends RecyclerView.ViewHolder{
+
+    // constructor
+    public FoodAdapter(Context mContext, List<FoodModel> foodModelList, int itemLayout){
+        this.mContext = mContext;
+        this.itemLayout = itemLayout;
+        this.foodModelList = foodModelList;
+        this.notifyDataSetChanged();
+    }
+
+    @Override
+    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        View itemView = LayoutInflater.from(parent.getContext()).inflate(itemLayout, parent, false);
+        ViewHolder viewHolder = new ViewHolder(itemView);
+        return viewHolder;
+    }
+
+    @Override
+    public void onBindViewHolder(final ViewHolder holder, int position) {
+        FoodModel foodModel = foodModelList.get(position);
+        holder.itemView.setTag(foodModel);
+        holder.bind(foodModel);
+        //load images using Glider library
+        Glide.with(mContext).load(foodModel.getThumbnail()).into(holder.foodImage);
+
+    }
+
+    public static class ViewHolder extends RecyclerView.ViewHolder{
         public ImageView foodImage;
         public TextView foodTitle, foodDesc, datePosted, chefName;
 
-        public FoodViewHolder(View itemView) {
+        public ViewHolder(View itemView) {
             super(itemView);
             foodImage = (ImageView) itemView.findViewById(R.id.food_image_card);
             foodTitle = (TextView) itemView.findViewById(R.id.food_title_card);
@@ -41,31 +67,13 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.FoodViewHolder
             datePosted = (TextView) itemView.findViewById(R.id.food_date_card);
             chefName = (TextView) itemView.findViewById(R.id.food_chef_card);
         }
-    }
+        public void bind(FoodModel foodModel){
+            foodTitle.setText(foodModel.getFoodName());
+            foodDesc.setText(foodModel.getBriefDesc());
+            datePosted.setText(foodModel.getDatePosted());
+            chefName.setText(foodModel.getChefName());
 
-    // constructor
-    public FoodAdapter(Context mContext, List<FoodModel> foodModelList, int itemLayout){
-        this.mContext = mContext;
-        this.itemLayout = itemLayout;
-        this.foodModelList = foodModelList;
-    }
-
-    @Override
-    public FoodViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.fooditem_layout, parent, false);
-        return new FoodViewHolder(itemView);
-    }
-
-    @Override
-    public void onBindViewHolder(final FoodViewHolder holder, int position) {
-        FoodModel foodModel = foodModelList.get(position);
-        holder.foodTitle.setText(foodModel.getFoodName());
-        holder.foodDesc.setText(foodModel.getBriefDesc());
-        holder.datePosted.setText(foodModel.getDatePosted());
-        holder.chefName.setText(foodModel.getChefName());
-
-        //load images using Glider library
-        Glide.with(mContext).load(foodModel.getThumbnail()).into(holder.foodImage);
+        }
     }
 
     @Override
