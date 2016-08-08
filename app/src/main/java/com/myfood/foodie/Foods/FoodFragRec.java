@@ -10,6 +10,7 @@ import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -154,7 +155,7 @@ public class FoodFragRec extends Fragment{
 
         foodModel = new FoodModel("Teriyaki", "The Lusina",getString(R.string.food_desc_card), "Wednesday",foodimages[8]);
         foodModelList.add(foodModel);
-
+        Log.d(FOODFRAG_TAG, foodModel.toString());
         foodModel = new FoodModel("Pancakes", "The Lusina",getString(R.string.food_desc_card), "Wednesday",foodimages[9]);
         foodModelList.add(foodModel);
     }
