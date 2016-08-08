@@ -91,7 +91,7 @@ public class FoodFragRec extends Fragment{
         View rootView = inflater.inflate(R.layout.foodfragrec_layout, container, false);
         recyclerView = (RecyclerView) rootView.findViewById(R.id.food_frag_recycler_id);
         SwipeRefreshLayout mSwipeRefreshLayout = (SwipeRefreshLayout)rootView.findViewById(R.id.food_frag_swipe_refresh_layout_id);
-        CoordinatorLayout coordinatorLayout = (CoordinatorLayout) rootView.findViewById(R.id.foodfrag_coordinatorLayout_id);
+        coordinatorLayout = (CoordinatorLayout) rootView.findViewById(R.id.foodfrag_coordinatorLayout_id);
         mSwipeRefreshLayout.setColorSchemeResources(
                 R.color.dark_slate_blue,
                 R.color.dark_slate_gray,
