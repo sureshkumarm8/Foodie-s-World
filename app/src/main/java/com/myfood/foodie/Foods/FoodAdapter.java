@@ -27,6 +27,7 @@ import java.util.List;
 public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.FoodViewHolder>{
     private Context mContext;
     private List<FoodModel> foodModelList;
+    public int itemLayout;
 
     public class FoodViewHolder extends RecyclerView.ViewHolder{
         public ImageView foodImage;
@@ -43,8 +44,9 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.FoodViewHolder
     }
 
     // constructor
-    public FoodAdapter(Context mContext, List<FoodModel> foodModelList){
+    public FoodAdapter(Context mContext, List<FoodModel> foodModelList, int itemLayout){
         this.mContext = mContext;
+        this.itemLayout = itemLayout;
         this.foodModelList = foodModelList;
     }
 

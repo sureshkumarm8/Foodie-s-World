@@ -61,7 +61,7 @@ public class FoodFragRec extends Fragment{
 
         /*initialize the food model list*/
         foodModelList = new ArrayList<>();
-        foodAdapter = new FoodAdapter(getActivity(), foodModelList);
+        foodAdapter = new FoodAdapter(getActivity(), foodModelList, R.layout.fooditem_layout);
         prepareMockFoodItems();
         /*
         if(isNetworkAvailable()) {
@@ -96,8 +96,6 @@ public class FoodFragRec extends Fragment{
                 R.color.dark_yellow,
                 R.color.dark_turquoise,
                 R.color.dark_sea_green);
-*/
-/*
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
@@ -112,7 +110,6 @@ public class FoodFragRec extends Fragment{
         recyclerView.setHasFixedSize(true);
         recyclerView.setItemAnimator(new LandingAnimator());
         recyclerView.setAdapter(scaleAdapter);
-
         return rootView;
     }
 
