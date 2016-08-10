@@ -7,7 +7,8 @@
     card_view:contentPadding="10dp"
     android:layout_margin="@dimen/card_food_margin"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:card_view="http://schemas.android.com/apk/res-auto">
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/tools">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -18,11 +19,46 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
-                <ImageView
+                <!--account image-->
+                <de.hdodenhof.circleimageview.CircleImageView
                     android:id="@+id/food_chef_card_img"
+                    android:layout_width="36dp"
+                    android:src="@mipmap/ic_launcher"
+                    android:layout_height="36dp"
+                    android:contentDescription="@string/food_chef_card"  app:civ_border_width="2dp"
+                    app:civ_border_color="#FF000000"/>
+
+                <!--container for chef name and time-->
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:contentDescription="@string/food_chef_card"/>
+                    android:orientation="vertical">
+                    <!--chef name-->
+                    <TextView
+                        android:id="@+id/food_chef_card"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/food_chef_card"
+                        android:textSize="@dimen/food_chef_size"
+                        android:paddingLeft="@dimen/food_chef_padding"
+                        android:paddingStart="@dimen/food_chef_padding"
+                        android:paddingRight="0dp"
+                        android:paddingEnd="0dp"
+                        android:textColor="@color/fire_brick"/>
+
+                    <!--date posted-->
+                    <TextView
+                        android:id="@+id/food_date_card"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/food_date_card"
+                        android:textSize="@dimen/food_chef_size"
+                        android:paddingRight="@dimen/food_chef_padding"
+                        android:paddingEnd="@dimen/food_chef_padding"
+                        android:paddingLeft="@dimen/food_chef_padding"
+                        android:paddingStart="@dimen/food_chef_padding"
+                        android:textColor="@color/black"/>
+                </LinearLayout>
             </LinearLayout>
             <!--Food image-->
             <ImageView
@@ -60,7 +96,7 @@
                 android:text="@string/food_desc_card"
                 android:textSize="@dimen/food_desc_size"/>
 
-            <!--Chef and date posted-->
+            <!--Like count, comment count, bookmark-->
             <LinearLayout
                 android:layout_below="@+id/food_desc_card"
                 android:layout_width="match_parent"
@@ -69,34 +105,12 @@
                 android:paddingRight="@dimen/food_chef_padding"
                 android:layout_marginTop="@dimen/food_chef_marginTop"
                 android:orientation="horizontal">
-                <!--date posted-->
-                <TextView
-                    android:id="@+id/food_date_card"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/food_date_card"
-                    android:textSize="@dimen/food_chef_size"
-                    android:paddingRight="@dimen/food_chef_padding"
-                    android:paddingEnd="@dimen/food_chef_padding"
-                    android:paddingLeft="0dp"
-                    android:paddingStart="0dp"
-                    android:textColor="@color/black"/>
+
                 <View
                     android:layout_width="1dp"
                     android:layout_height="15dp"
                     android:background="@color/dim_gray"/>
-                <!--chef name-->
-                <TextView
-                    android:id="@+id/food_chef_card"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/food_chef_card"
-                    android:textSize="@dimen/food_chef_size"
-                    android:paddingLeft="@dimen/food_chef_padding"
-                    android:paddingStart="@dimen/food_chef_padding"
-                    android:paddingRight="0dp"
-                    android:paddingEnd="0dp"
-                    android:textColor="@color/fire_brick"/>
+
 
             </LinearLayout>
         </RelativeLayout>
