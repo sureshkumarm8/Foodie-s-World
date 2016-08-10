@@ -30,6 +30,7 @@
 
                 <!--container for chef name and time-->
                 <LinearLayout
+                    android:gravity="bottom"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
