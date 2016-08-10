@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.v7.widget.CardView android:id="@+id/food_item_card"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:elevation="3dp"
     card_view:cardCornerRadius="@dimen/card_food_radius"
+    card_view:contentPadding="10dp"
     android:layout_margin="@dimen/card_food_margin"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:card_view="http://schemas.android.com/apk/res-auto">
@@ -11,7 +12,18 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-            
+            <!--top container-->
+            <LinearLayout
+                android:id="@+id/food_chef_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <ImageView
+                    android:id="@+id/food_chef_card_img"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="@string/food_chef_card"/>
+            </LinearLayout>
             <!--Food image-->
             <ImageView
                 android:id="@+id/food_image_card"
@@ -20,7 +32,8 @@
                 android:clickable="true"
                 android:background="?attr/selectableItemBackgroundBorderless"
                 android:contentDescription="@string/food_image_card"
-                android:scaleType="fitXY"/>
+                android:scaleType="fitXY"
+                android:layout_below="@id/food_chef_container"/>
             
             <!--food title-->
             <TextView

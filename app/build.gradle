@@ -43,4 +43,7 @@ dependencies {
 
     // Recycler View animators jCenter
     compile 'jp.wasabeef:recyclerview-animators:1.2.2'
+
+    /*Circle image view for account photos*/
+    compile 'de.hdodenhof:circleimageview:2.1.0'
 }
