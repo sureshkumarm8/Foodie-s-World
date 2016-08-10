@@ -40,8 +40,7 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.ViewHolder>{
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext()).inflate(itemLayout, parent, false);
-        ViewHolder viewHolder = new ViewHolder(itemView);
-        return viewHolder;
+        return new ViewHolder(itemView);
     }
 
     @Override
@@ -49,13 +48,14 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.ViewHolder>{
         FoodModel foodModel = foodModelList.get(position);
         holder.itemView.setTag(foodModel);
         holder.bind(foodModel);
+
         //load images using Glider library
         Glide.with(mContext).load(foodModel.getThumbnail()).into(holder.foodImage);
-
+        Glide.with(mContext).load(foodModel.getChefImage()).into(holder.chefImage);
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder{
-        public ImageView foodImage;
+        public ImageView foodImage, chefImage;
         public TextView foodTitle, foodDesc, datePosted, chefName;
 
         public ViewHolder(View itemView) {
@@ -65,13 +65,13 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.ViewHolder>{
             foodDesc = (TextView) itemView.findViewById(R.id.food_desc_card);
             datePosted = (TextView) itemView.findViewById(R.id.food_date_card);
             chefName = (TextView) itemView.findViewById(R.id.food_chef_card);
+            chefImage = (ImageView)itemView.findViewById(R.id.food_chef_card_img);
         }
         public void bind(FoodModel foodModel){
             foodTitle.setText(foodModel.getFoodName());
             foodDesc.setText(foodModel.getBriefDesc());
             datePosted.setText(foodModel.getDatePosted());
             chefName.setText(foodModel.getChefName());
-
         }
     }
 
