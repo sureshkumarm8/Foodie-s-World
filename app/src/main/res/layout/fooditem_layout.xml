@@ -77,8 +77,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/food_image_card"
-                android:paddingLeft="@dimen/food_title_card_padding"
-                android:paddingRight="@dimen/food_title_card_padding"
                 android:textColor="@color/black"
                 android:text="@string/food_title_card"
                 android:textStyle="bold"
@@ -90,26 +88,28 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/food_title_card"
-                android:paddingLeft="@dimen/food_desc_padding"
-                android:paddingRight="@dimen/food_desc_padding"
                 android:textColor="@color/black"
                 android:text="@string/food_desc_card"
                 android:textSize="@dimen/food_desc_size"/>
 
+            <View
+                android:id="@+id/food_card_divider"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_below="@+id/food_desc_card"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/dim_gray"/>
+
             <!--Like count, comment count, bookmark-->
             <LinearLayout
-                android:layout_below="@+id/food_desc_card"
+                android:layout_below="@+id/food_card_divider"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingLeft="@dimen/food_chef_padding"
                 android:paddingRight="@dimen/food_chef_padding"
                 android:layout_marginTop="@dimen/food_chef_marginTop"
                 android:orientation="horizontal">
-
-                <View
-                    android:layout_width="1dp"
-                    android:layout_height="15dp"
-                    android:background="@color/dim_gray"/>
 
 
             </LinearLayout>
