@@ -128,35 +128,42 @@ public class FoodFragRec extends Fragment{
                 R.drawable.teriyaki,
                 R.drawable.pancakes
         };
+
+        int[] chefImages = new int[]{
+                R.drawable.lusina,
+                R.drawable.squirell_oracle,
+                R.drawable.thinker,
+                R.drawable.intelu
+        };
         //add mock data
-        FoodModel foodModel = new FoodModel("Bread", "The Lusina",getString(R.string.food_desc_card), "Wednesday",foodimages[0]);
+        FoodModel foodModel = new FoodModel("Bread", "The Lusina",getString(R.string.food_desc_card), "Wednesday",foodimages[0], chefImages[0]);
         foodModelList.add(foodModel);
 
-        foodModel = new FoodModel("Bread Powdered", "Brian",getString(R.string.food_desc_card), "Thursday",foodimages[1]);
+        foodModel = new FoodModel("Bread Powdered", "Brian",getString(R.string.food_desc_card), "Thursday",foodimages[1],chefImages[1]);
         foodModelList.add(foodModel);
 
-        foodModel = new FoodModel("Lasagna", "Awori",getString(R.string.food_desc_card), "Friday",foodimages[2]);
+        foodModel = new FoodModel("Lasagna", "Awori",getString(R.string.food_desc_card), "Friday",foodimages[2],chefImages[2]);
         foodModelList.add(foodModel);
 
-        foodModel = new FoodModel("Salad", "Ombito",getString(R.string.food_desc_card), "Saturday",foodimages[3]);
+        foodModel = new FoodModel("Salad", "Ombito",getString(R.string.food_desc_card), "Saturday",foodimages[3],chefImages[3]);
         foodModelList.add(foodModel);
 
-        foodModel = new FoodModel("Salmon", "Lusina",getString(R.string.food_desc_card), "Wednesday",foodimages[4]);
+        foodModel = new FoodModel("Salmon", "Lusina",getString(R.string.food_desc_card), "Wednesday",foodimages[4],chefImages[3]);
         foodModelList.add(foodModel);
 
-        foodModel = new FoodModel("Sweet Cashews", "DeDe",getString(R.string.food_desc_card), "Wednesday",foodimages[5]);
+        foodModel = new FoodModel("Sweet Cashews", "DeDe",getString(R.string.food_desc_card), "Wednesday",foodimages[5],chefImages[1]);
         foodModelList.add(foodModel);
 
-        foodModel = new FoodModel("Noodle", "The Lusina",getString(R.string.food_desc_card), "Wednesday",foodimages[6]);
+        foodModel = new FoodModel("Noodle", "The Lusina",getString(R.string.food_desc_card), "Wednesday",foodimages[6],chefImages[0]);
         foodModelList.add(foodModel);
 
-        foodModel = new FoodModel("Rolled Buns", "The Lusina",getString(R.string.food_desc_card), "Wednesday",foodimages[7]);
+        foodModel = new FoodModel("Rolled Buns", "The Lusina",getString(R.string.food_desc_card), "Wednesday",foodimages[7],chefImages[1]);
         foodModelList.add(foodModel);
 
-        foodModel = new FoodModel("Teriyaki", "The Lusina",getString(R.string.food_desc_card), "Wednesday",foodimages[8]);
+        foodModel = new FoodModel("Teriyaki", "The Lusina",getString(R.string.food_desc_card), "Wednesday",foodimages[8],chefImages[2]);
         foodModelList.add(foodModel);
         Log.d(FOODFRAG_TAG, foodModel.toString());
-        foodModel = new FoodModel("Pancakes", "The Lusina",getString(R.string.food_desc_card), "Wednesday",foodimages[9]);
+        foodModel = new FoodModel("Pancakes", "The Lusina",getString(R.string.food_desc_card), "Wednesday",foodimages[9],chefImages[3]);
         foodModelList.add(foodModel);
     }
 
