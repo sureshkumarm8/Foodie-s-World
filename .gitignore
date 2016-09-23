@@ -8,8 +8,6 @@
 /build
 /captures
 .idea/vcs.xml
-app/libs/
-app/src/main/res/drawable/
 # Built application files
 *.apk
 *.ap_

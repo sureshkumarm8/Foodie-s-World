@@ -73,6 +73,8 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.ViewHolder>{
             datePosted.setText(foodModel.getDatePosted());
             chefName.setText(foodModel.getChefName());
         }
+
+
     }
 
     public void add(FoodModel itemModel, int postion){
