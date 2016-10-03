@@ -1,4 +1,4 @@
-<android.support.design.widget.CoordinatorLayout
+<LinearLayout
     android:id="@+id/foodfrag_coordinatorLayout_id"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
@@ -11,13 +11,12 @@
         android:layout_height="wrap_content">
 -->
 
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/food_frag_recycler_id"
-            xmlns:android="http://schemas.android.com/apk/res/android"
+        <ListView
+            android:id="@+id/recipemainList"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:clipToPadding="false"
-            android:padding="2dp"/>
-
+            android:dividerHeight="1dp"
+            android:padding="0dip">
+        </ListView>
 <!--    </android.support.v4.widget.SwipeRefreshLayout>-->
-</android.support.design.widget.CoordinatorLayout>
+</LinearLayout>

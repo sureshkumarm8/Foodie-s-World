@@ -7,4 +7,7 @@
     <string name="food_desc_card">Lorem ipsum dolor sit amet, quo justo semper maiestatis te. Natum minim nominavi eu cum, his mucius numquam ocurreret eu, in dicunt impedit suscipiantur pro.</string>
     <string name="food_chef_card">Chef Name</string>
     <string name="food_date_card">day : time</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
 </resources>

@@ -1,27 +1,24 @@
 package com.myfood.foodie.Foods;
 
+import android.app.Fragment;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.design.widget.CoordinatorLayout;
-import android.support.design.widget.Snackbar;
-import android.support.v4.app.Fragment;
-import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.OvershootInterpolator;
+import android.widget.AdapterView;
+import android.widget.LinearLayout;
+import android.widget.ListView;
+import android.widget.Toast;
+
+import com.myfood.foodie.MainActivity;
 import com.myfood.foodie.R;
+import com.myfood.foodie.cfood.FoodAdapter;
+
 import java.util.ArrayList;
 import java.util.List;
-
-import jp.wasabeef.recyclerview.animators.LandingAnimator;
-import jp.wasabeef.recyclerview.animators.adapters.AlphaInAnimationAdapter;
-import jp.wasabeef.recyclerview.animators.adapters.ScaleInAnimationAdapter;
 
 /**
  * Project: Foodie
@@ -32,87 +29,63 @@ import jp.wasabeef.recyclerview.animators.adapters.ScaleInAnimationAdapter;
  */
 public class FoodFragRec extends Fragment{
     private static final  String FOODFRAG_TAG = FoodFragRec.class.getSimpleName();
-    private RecyclerView recyclerView;
-    private FoodAdapter foodAdapter;
+    private ListView listView;
+    //private com.myfood.foodie.cfood.FoodAdapterdapter foodAdapter;
+    private com.myfood.foodie.cfood.FoodAdapter foodAdapter;
     private List<FoodModel> foodModelList;
-    private CoordinatorLayout coordinatorLayout;
+    private LinearLayout linearLayout;
+    private View mView;
+    private Fragment fragment;
 
-    public static Fragment newInstance() {
-        FoodFragRec frag = new FoodFragRec();
-        frag.setRetainInstance(true);
-        return frag;
-    }
-    /**reference to activity which uses fragment for initialization*/
+
     @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-        AppCompatActivity appCompatActivity = (AppCompatActivity) context;
-        setRetainInstance(true);
-    }
-
-    /**
-     * creates fragment's essential components of fragment that you want to retain when fragment
-     * is paused or stopped*/
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
         //has options?
         setHasOptionsMenu(true);
 
+        View rootView = inflater.inflate(R.layout.foodfragrec_layout, container, false);
+        listView = (ListView) rootView.findViewById(R.id.recipemainList);
+
+
         /*initialize the food model list*/
         foodModelList = new ArrayList<>();
-        foodAdapter = new FoodAdapter(getActivity(), foodModelList, R.layout.fooditem_layout);
         prepareMockFoodItems();
-        /*
-        if(isNetworkAvailable()) {
-            loadNews.execute();
-        }else{
-            Snackbar snackbar = Snackbar
-                    .make(coordinatorLayout, getString(R.string.snackbar_warning_no_internet_conn), Snackbar.LENGTH_SHORT)
-                    .setAction(getString(R.string.snackbar_no_internet_conn_retry), new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            Snackbar snackbar1 = Snackbar.make(coordinatorLayout, getString(R.string.snackbar_no_internet_conn_retry), Snackbar.LENGTH_SHORT);
-                            snackbar1.show();
-                        }
-                    });
-            snackbar.show();
-        }*/
+        foodAdapter = new FoodAdapter(getActivity(), foodModelList);
+        listView.setAdapter(foodAdapter);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+
+
+
+                Log.i("here", "clicked");
+
+                Toast.makeText(getActivity(), "ccliked here ", Toast.LENGTH_LONG).show();
+
+
+                fragment = new FoodItem();
+
+                if (fragment != null) {
+                    android.app.FragmentManager fragmentManager = getFragmentManager();
+                    android.app.FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                    fragmentTransaction.replace(R.id.container_body, fragment);
+                    fragmentTransaction.addToBackStack("fooditem");
+                    fragmentTransaction.commit();
+
+                }
+            }
+        });
+
+
+
+        return rootView;
+
     }
 
 
     /*called when it is time for the fragment to draw its UI for the first time*/
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.foodfragrec_layout, container, false);
-        recyclerView = (RecyclerView) rootView.findViewById(R.id.food_frag_recycler_id);
-        coordinatorLayout = (CoordinatorLayout) rootView.findViewById(R.id.foodfrag_coordinatorLayout_id);
 
-        /*        SwipeRefreshLayout mSwipeRefreshLayout = (SwipeRefreshLayout)rootView.findViewById(R.id.food_frag_swipe_refresh_layout_id);
-        mSwipeRefreshLayout.setColorSchemeResources(
-                R.color.dark_slate_blue,
-                R.color.dark_slate_gray,
-                R.color.dark_cyan,
-                R.color.dark_yellow,
-                R.color.dark_turquoise,
-                R.color.dark_sea_green);
-        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getActivity());
-        recyclerView.setLayoutManager(mLayoutManager);
-        recyclerView.setItemAnimator(new DefaultItemAnimator());
-        recyclerView.setAdapter(foodAdapter);
-*/
-
-        AlphaInAnimationAdapter alphaAdapter = new AlphaInAnimationAdapter(foodAdapter);
-        alphaAdapter.setInterpolator(new OvershootInterpolator());
-        ScaleInAnimationAdapter scaleAdapter = new ScaleInAnimationAdapter(alphaAdapter);
-        LinearLayoutManager mLinearLayoutManager = new LinearLayoutManager(getActivity());
-        recyclerView.setLayoutManager(mLinearLayoutManager);
-        recyclerView.setHasFixedSize(true);
-        recyclerView.setItemAnimator(new LandingAnimator());
-        recyclerView.setAdapter(scaleAdapter);
-        return rootView;
-    }
 
     /*mock images and text for food items*/
     private void prepareMockFoodItems() {
