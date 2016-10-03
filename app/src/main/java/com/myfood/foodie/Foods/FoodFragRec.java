@@ -53,31 +53,6 @@ public class FoodFragRec extends Fragment{
         prepareMockFoodItems();
         foodAdapter = new FoodAdapter(getActivity(), foodModelList);
         listView.setAdapter(foodAdapter);
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-
-
-
-                Log.i("here", "clicked");
-
-                Toast.makeText(getActivity(), "ccliked here ", Toast.LENGTH_LONG).show();
-
-
-                fragment = new FoodItem();
-
-                if (fragment != null) {
-                    android.app.FragmentManager fragmentManager = getFragmentManager();
-                    android.app.FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                    fragmentTransaction.replace(R.id.container_body, fragment);
-                    fragmentTransaction.addToBackStack("fooditem");
-                    fragmentTransaction.commit();
-
-                }
-            }
-        });
-
-
 
         return rootView;
 
