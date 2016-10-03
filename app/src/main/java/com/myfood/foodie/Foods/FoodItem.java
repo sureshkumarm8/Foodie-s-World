@@ -17,7 +17,7 @@ import com.myfood.foodie.R;
 public class FoodItem extends Fragment{
     View mview;
 
-    TextView txtdesc;
+    TextView txtdesc, txttitle;
 
     @Nullable
     @Override
@@ -27,9 +27,15 @@ public class FoodItem extends Fragment{
 
 
         Bundle b = getArguments();
-        String s = b.getString("desc");
+        String descs = b.getString("desc");
+        String titles = b.getString("title");
+
+        txttitle = (TextView)mview.findViewById(R.id.texttitle);
+        txttitle.setText(titles);
+
         txtdesc = (TextView)mview.findViewById(R.id.textdesc);
-        txtdesc.setText(s);
+        txtdesc.setText(descs);
+
         return mview;
     }
 }

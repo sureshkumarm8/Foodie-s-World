@@ -3,11 +3,14 @@ package com.myfood.foodie.cfood;
 import android.app.Activity;
 import android.app.Fragment;
 import android.content.Context;
+import android.graphics.drawable.Drawable;
+import android.media.Image;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.myfood.foodie.Foods.FoodItem;
@@ -38,6 +41,7 @@ public class FoodAdapter extends BaseAdapter implements View.OnClickListener {
     }
     public class ViewHolder {
         TextView chefcard, datecard, titlecard,desccard;
+        ImageView food_image_card;
         View delimter;
 
         ViewHolder(View v) {
@@ -45,7 +49,7 @@ public class FoodAdapter extends BaseAdapter implements View.OnClickListener {
             this.datecard = (TextView) v.findViewById(R.id.food_date_card);
             this.titlecard = (TextView) v.findViewById(R.id.food_title_card);
             this.desccard = (TextView) v.findViewById(R.id.food_desc_card);
-//            this.delimter = v.findViewById(R.id.message_delimter);
+           this.food_image_card = (ImageView) v.findViewById(R.id.food_image_card);
 //            this.message = (TextView) v.findViewById(R.id.message_text);
         }
     }
@@ -57,6 +61,7 @@ public class FoodAdapter extends BaseAdapter implements View.OnClickListener {
 
                 Bundle args = new Bundle();
                 args.putString("title",holder.titlecard.getText().toString());
+                args.putString("desc",holder.desccard.getText().toString());
                 fragment = new FoodItem();
 
                 fragment.setArguments(args);
@@ -75,6 +80,7 @@ public class FoodAdapter extends BaseAdapter implements View.OnClickListener {
             case R.id.food_desc_card:
                 Bundle args2 = new Bundle();
                 args2.putString("desc",holder.desccard.getText().toString());
+                args2.putString("title",holder.titlecard.getText().toString());
                 fragment = new FoodItem();
 
                 fragment.setArguments(args2);
@@ -129,6 +135,8 @@ public class FoodAdapter extends BaseAdapter implements View.OnClickListener {
         holder.titlecard.setOnClickListener(this);
         holder.desccard.setText(item.getBriefDesc());
         holder.desccard.setOnClickListener(this);
+        Drawable drawable = mActivity.getResources().getDrawable(item.getThumbnail());
+        holder.food_image_card.setImageDrawable(drawable);
 
 
         return convertView;
