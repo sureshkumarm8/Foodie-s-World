@@ -26,13 +26,17 @@
         <!--SPLASH SCREEN, making an entrance, 1st screen to start-->
         <!--config changes is to maintain the position of elements when oriented-->
         <activity
-            android:name=".SplashScreen"
+            android:name=".intro.SplashScreen"
             android:configChanges="orientation|screenSize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+
+        <!--Welcome screen, introduction screen-->
+        <activity android:name=".intro.WelcomeScreen"
+            android:configChanges="orientation|screenSize" />
 
         <!--MAIN ACTIVITY contains the list view, or RecyclerView-->
         <activity

@@ -1,4 +1,4 @@
-package com.myfood.foodie;
+package com.myfood.foodie.intro;
 
 import android.content.Intent;
 import android.graphics.Typeface;
@@ -8,6 +8,8 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.myfood.foodie.MainActivity;
 
 /**
  Project: Foodie
